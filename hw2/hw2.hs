@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
-module LogAnalysis where
+module Hw2.LogAnalysis where
 
-import Log
+import Hw2.Log
 import Text.Read
 --Exercise 1 The first step is figuring out how to parse an individual
 --message. Define a function
@@ -43,12 +43,12 @@ import Text.Read
 --Unknown messages should not be stored in a MessageTree since
 --they lack a timestamp.
 
---Attempt one 
+--Attempt one
 --parseMessage :: String -> LogMessage
 --parseMessage s
 --   | ws1 == "I" = LogMessage Info (read ws2::Int) (merge 2 wordList)
 --   | ws1 == "W" = LogMessage Warning (read ws2::Int) (merge 2 wordList)
---   | ws1 == "E" = LogMessage (Error (read ws2::Int)) (read ws3::Int) (merge 3 wordList) 
+--   | ws1 == "E" = LogMessage (Error (read ws2::Int)) (read ws3::Int) (merge 3 wordList)
 --   | otherwise = Unknown s
 --       where wordList = words s
 --             ws1 = wordList !! 0
@@ -73,9 +73,9 @@ parseVals _ = (Nothing, Nothing, "")
 
 
 checkError :: String -> Maybe MessageType
-checkError i = case ((readMaybe i)::(Maybe Int)) of 
+checkError i = case ((readMaybe i)::(Maybe Int)) of
     Just v -> Just (Error v)
-    _ -> Nothing 
+    _ -> Nothing
 
 parse :: String -> [LogMessage]
 parse contents =  map parseMessage (lines contents)
@@ -159,7 +159,7 @@ inOrder (Node lchild v rchild) = (inOrder lchild) ++ (v:(inOrder rchild))
 --function, and the name of the log file to parse.
 
 whatWentWrong :: [LogMessage] -> [String]
-whatWentWrong xs = getMessages $ filter relevant (inOrder $ build xs) 
+whatWentWrong xs = getMessages $ filter relevant (inOrder $ build xs)
 
 relevant :: LogMessage -> Bool
 relevant (LogMessage (Error i) _ _) = i >= 50

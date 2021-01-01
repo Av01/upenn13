@@ -1,6 +1,6 @@
-module Calc where
-import ExprT
-import Parser
+module Hw5.Calc where
+import Hw5.ExprT
+import Hw5.Parser
 
 -- Exercise 1
 -- Write Version 1 of the calculator: an evaluator for ExprT, with the

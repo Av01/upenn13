@@ -1,7 +1,7 @@
 {-# LANGUAGE TypeSynonymInstances,FlexibleInstances #-}
-import StackVM
-import Parser
-import Calc
+import Hw5.StackVM
+import Hw5.Parser
+import Hw5.Calc
 
 
 instance Expr Program where

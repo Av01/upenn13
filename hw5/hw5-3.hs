@@ -1,6 +1,6 @@
 {-# LANGUAGE TypeSynonymInstances,FlexibleInstances #-}
-import Parser
-import Calc
+import Hw5.Parser
+import Hw5.Calc
 import qualified Data.Map as M
 
 data VarExpt = Lit Integer
@@ -14,7 +14,7 @@ class HasVars a where
 
 instance HasVars VarExpt where
   var str = Var str
-
+ 
 instance Expr VarExpt where
   lit x = Lit x
   mul x y = Mul x y

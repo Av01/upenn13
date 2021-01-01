@@ -1,4 +1,4 @@
-module ExprT where
+module Hw5.ExprT where
 
 data ExprT = Lit Integer
            | Add ExprT ExprT
