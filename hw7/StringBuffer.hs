@@ -3,7 +3,7 @@ module Hw7.StringBuffer where
 
 import Data.Monoid
 
-import Buffer
+import Hw7.Buffer
 
 instance Buffer String where
   toString     = id

@@ -1,4 +1,5 @@
 -- {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+module Hw7.Temp where
 
 newtype Sum a = Sum a
   deriving (Eq, Ord, Show)
